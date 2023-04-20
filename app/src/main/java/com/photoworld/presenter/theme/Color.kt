@@ -1,4 +1,4 @@
-package com.photoworld.ui.theme
+package com.photoworld.presenter.theme
 
 import androidx.compose.ui.graphics.Color
 
