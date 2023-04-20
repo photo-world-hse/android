@@ -6,4 +6,7 @@
     <string name="password">Пароль</string>
     <string name="email_hint">Введите почту</string>
     <string name="password_hint">Введите пароль</string>
+    <string name="main">Главная</string>
+    <string name="photo_sessions">Фотосессии</string>
+    <string name="profile">Профиль</string>
 </resources>
