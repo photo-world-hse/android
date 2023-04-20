@@ -8,10 +8,6 @@ sealed class Screen(val route: String) {
 
     object Login : Screen(route = "login")
 
-    object Test : Screen(route = "test_screen")
-
-    object Test2 : Screen(route = "test2_screen")
-
     sealed class BottomNavigationScreen(
         route: String,
         @StringRes
