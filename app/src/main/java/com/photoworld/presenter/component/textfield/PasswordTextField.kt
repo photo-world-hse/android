@@ -20,6 +20,7 @@ import com.photoworld.R
 fun PasswordTextField(
     value: String,
     onValueChange: (String) -> Unit,
+    hint: String = stringResource(id = R.string.password_hint),
     modifier: Modifier = Modifier,
 ) {
 
@@ -28,7 +29,7 @@ fun PasswordTextField(
     BaseTextField(
         value = value,
         onValueChange = onValueChange,
-        hint = stringResource(id = R.string.password_hint),
+        hint = hint,
         visualTransformation = if (showPassword) {
             VisualTransformation.None
         } else {
@@ -44,8 +45,7 @@ fun PasswordTextField(
                     )
                 }
             } else {
-                IconButton(
-                    onClick = { showPassword = true }) {
+                IconButton(onClick = { showPassword = true }) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_show),
                         contentDescription = "show_password"

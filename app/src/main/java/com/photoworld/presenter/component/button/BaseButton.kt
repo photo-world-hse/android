@@ -22,7 +22,7 @@ fun BaseButton(
         onClick = onClick,
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = Blue600),
-        contentPadding = PaddingValues(12.dp),
+        contentPadding = PaddingValues(18.dp),
         modifier = modifier
             .fillMaxWidth()
     ) {

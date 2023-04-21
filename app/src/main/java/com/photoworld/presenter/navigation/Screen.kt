@@ -8,6 +8,10 @@ sealed class Screen(val route: String) {
 
     object Login : Screen(route = "login")
 
+    object Registration : Screen(route = "registration")
+
+    object Code : Screen(route = "code")
+
     sealed class BottomNavigationScreen(
         route: String,
         @StringRes
