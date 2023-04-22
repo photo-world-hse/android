@@ -3,7 +3,6 @@ package com.photoworld.presenter.registration
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -35,63 +35,44 @@ fun RegistrationScreen(
     navController: NavController,
     viewModel: RegistrationViewModel = hiltViewModel()
 ) {
-    Box(
+    Scaffold(
         modifier = Modifier
-            .fillMaxSize()
             .background(MaterialTheme.colors.background)
-    ) {
+            .padding(16.dp)
+    ) { padding ->
         Column(
             verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
-                .background(MaterialTheme.colors.background)
+                .padding(padding)
         ) {
             Text(
                 text = stringResource(R.string.registration_title),
                 style = MaterialTheme.typography.h6,
             )
             Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = stringResource(R.string.name),
-                style = MaterialTheme.typography.subtitle1,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
             BaseTextField(
                 value = viewModel.nameState.value,
                 onValueChange = viewModel::onNameChange,
                 hint = stringResource(id = R.string.name_hint),
+                topLabel = stringResource(R.string.name),
             )
             Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = stringResource(R.string.email),
-                style = MaterialTheme.typography.subtitle1,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
             EmailTextField(
                 value = viewModel.emailState.value,
                 onValueChange = viewModel::onEmailChange,
             )
             Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = stringResource(R.string.password),
-                style = MaterialTheme.typography.subtitle1,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
             PasswordTextField(
                 value = viewModel.passwordState.value,
                 onValueChange = viewModel::onPasswordChange,
             )
             Spacer(modifier = Modifier.height(20.dp))
-            Text(
-                text = stringResource(R.string.repeat_password),
-                style = MaterialTheme.typography.subtitle1,
-            )
-            Spacer(modifier = Modifier.height(8.dp))
             PasswordTextField(
                 value = viewModel.repeatPasswordState.value,
                 onValueChange = viewModel::onRepeatPasswordChange,
                 hint = stringResource(id = R.string.repeat_password_hint),
+                topLabel = stringResource(R.string.repeat_password),
             )
             Spacer(modifier = Modifier.height(20.dp))
             BaseButton(

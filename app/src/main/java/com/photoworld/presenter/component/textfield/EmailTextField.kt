@@ -17,6 +17,7 @@ fun EmailTextField(
         value = value,
         onValueChange = onValueChange,
         hint = stringResource(id = R.string.email_hint),
+        topLabel = stringResource(id = R.string.email),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
         modifier = modifier
     )
