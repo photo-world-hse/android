@@ -5,6 +5,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.photoworld.presenter.code.CodeScreen
+import com.photoworld.presenter.createprofile.about.CreateProfileAboutScreen
+import com.photoworld.presenter.createprofile.start.CreateProfileStartScreen
+import com.photoworld.presenter.createprofile.tag.CreateProfileTagScreen
 import com.photoworld.presenter.login.LoginScreen
 import com.photoworld.presenter.main.MainScreen
 import com.photoworld.presenter.photosessions.PhotoSessionsScreen
@@ -28,6 +31,15 @@ fun SetupNavGraph(
         }
         composable(route = Screen.Code.route) {
             CodeScreen(navController = navController)
+        }
+        composable(route = Screen.CreateProfileStart.route) {
+            CreateProfileStartScreen(navController = navController)
+        }
+        composable(route = Screen.CreateProfileTag.route) {
+            CreateProfileTagScreen(navController = navController)
+        }
+        composable(route = Screen.CreateProfileAbout.route) {
+            CreateProfileAboutScreen(navController = navController)
         }
         composable(route = Screen.BottomNavigationScreen.Main.route) {
             MainScreen(navController = navController)

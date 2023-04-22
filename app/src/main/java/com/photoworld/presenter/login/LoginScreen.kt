@@ -32,7 +32,7 @@ import com.photoworld.presenter.theme.InterMedium14TextStyle
 @Composable
 fun LoginScreen(
     navController: NavController,
-    viewModel: LoginViewModel = hiltViewModel()
+    viewModel: LoginViewModel = hiltViewModel(),
 ) {
     Box(
         modifier = Modifier
