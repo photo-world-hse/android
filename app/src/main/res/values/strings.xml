@@ -36,4 +36,8 @@
     <string name="experience">Стаж работы</string>
     <string name="experience_hint">В годах</string>
     <string name="tags_info">Специалисты видят их и могут присылать свои предложения</string>
+    <string name="add_photo">Добавить фото</string>
+    <string name="add_avatar">Прикрепить фото</string>
+    <string name="add_avatar_title">Загрузите фото профиля</string>
+    <string name="add_avatar_info">Клиенты чаще выбирают специалистов с фото. Потом его можно будет поменять в анкете.</string>
 </resources>

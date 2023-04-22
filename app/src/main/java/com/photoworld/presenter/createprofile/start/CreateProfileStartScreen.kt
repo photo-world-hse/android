@@ -3,13 +3,13 @@ package com.photoworld.presenter.createprofile.start
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -29,18 +29,17 @@ fun CreateProfileStartScreen(
     navController: NavController,
     viewModel: CreateProfileStartViewModel = hiltViewModel(),
 ) {
-    Box(
+    Scaffold(
         modifier = Modifier
-            .fillMaxSize()
             .background(MaterialTheme.colors.background)
-    ) {
+            .padding(16.dp)
+    ) { padding ->
         Column(
-            horizontalAlignment = Alignment.Companion.CenterHorizontally,
+            horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp)
-                .background(MaterialTheme.colors.background)
+                .padding(padding)
         ) {
             Image(
                 painter = painterResource(id = R.drawable.create_profile),

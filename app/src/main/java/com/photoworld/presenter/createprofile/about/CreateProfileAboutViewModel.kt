@@ -32,7 +32,7 @@ class CreateProfileAboutViewModel @Inject constructor(
     }
 
     fun nextScreen() {
-        navigationManager.navigate(Screen.BottomNavigationScreen.Main.route)
+        navigationManager.navigate(Screen.CreateProfileImage.route)
     }
 
 }

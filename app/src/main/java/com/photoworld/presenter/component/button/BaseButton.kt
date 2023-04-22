@@ -8,6 +8,7 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.photoworld.presenter.theme.Blue600
 import com.photoworld.presenter.theme.InterMedium16TextStyle
@@ -16,12 +17,13 @@ import com.photoworld.presenter.theme.InterMedium16TextStyle
 fun BaseButton(
     text: String,
     onClick: () -> Unit,
+    backgroundColor: Color = Blue600,
     modifier: Modifier = Modifier,
 ) {
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Blue600),
+        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         contentPadding = PaddingValues(18.dp),
         modifier = modifier
             .fillMaxWidth()
