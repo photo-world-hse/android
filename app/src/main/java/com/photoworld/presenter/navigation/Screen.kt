@@ -2,8 +2,10 @@ package com.photoworld.presenter.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.runtime.Immutable
 import com.photoworld.R
 
+@Immutable
 sealed class Screen(val route: String) {
 
     object Login : Screen(route = "login")
@@ -18,6 +20,7 @@ sealed class Screen(val route: String) {
 
     object CreateProfileAbout : Screen(route = "create_profile_about")
 
+    @Immutable
     sealed class BottomNavigationScreen(
         route: String,
         @StringRes

@@ -3,9 +3,11 @@ package com.photoworld.presenter.component.textfield
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.TextFieldDefaults
@@ -24,11 +26,19 @@ fun BaseTextField(
     value: String,
     onValueChange: (String) -> Unit,
     hint: String = "",
+    topLabel: String = "",
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     modifier: Modifier = Modifier,
 ) {
+    if (topLabel.isNotBlank()) {
+        Text(
+            text = topLabel,
+            style = MaterialTheme.typography.subtitle1,
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+    }
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,

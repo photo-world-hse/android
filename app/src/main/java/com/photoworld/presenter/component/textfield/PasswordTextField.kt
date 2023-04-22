@@ -20,6 +20,7 @@ import com.photoworld.R
 fun PasswordTextField(
     value: String,
     onValueChange: (String) -> Unit,
+    topLabel: String = stringResource(id = R.string.password),
     hint: String = stringResource(id = R.string.password_hint),
     modifier: Modifier = Modifier,
 ) {
@@ -30,6 +31,7 @@ fun PasswordTextField(
         value = value,
         onValueChange = onValueChange,
         hint = hint,
+        topLabel = topLabel,
         visualTransformation = if (showPassword) {
             VisualTransformation.None
         } else {
