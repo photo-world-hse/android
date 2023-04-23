@@ -18,13 +18,14 @@ fun BaseButton(
     text: String,
     onClick: () -> Unit,
     backgroundColor: Color = Blue600,
+    contentPadding: PaddingValues = PaddingValues(18.dp),
     modifier: Modifier = Modifier,
 ) {
     Button(
         onClick = onClick,
         shape = RoundedCornerShape(8.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
-        contentPadding = PaddingValues(18.dp),
+        contentPadding = contentPadding,
         modifier = modifier
             .fillMaxWidth()
     ) {

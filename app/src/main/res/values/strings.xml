@@ -40,4 +40,11 @@
     <string name="add_avatar">Прикрепить фото</string>
     <string name="add_avatar_title">Загрузите фото профиля</string>
     <string name="add_avatar_info">Клиенты чаще выбирают специалистов с фото. Потом его можно будет поменять в анкете.</string>
+    <string name="profile_settings">Настройки профиля</string>
+    <string name="photos">Фотографии</string>
+    <string name="info">Информация</string>
+    <string name="my_albums">Мои альбомы</string>
+    <string name="add_album">Добавить альбом</string>
+    <string name="all_photos">Все фотографии</string>
+    <string name="tags">Теги</string>
 </resources>
