@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -18,16 +17,14 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseTextButton
+import com.photoworld.presenter.component.item.ImageItem
 import com.photoworld.presenter.component.topbar.TopBar
 import com.photoworld.presenter.theme.Gray600
 import com.photoworld.presenter.theme.InterMedium14TextStyle
@@ -105,14 +102,11 @@ fun PhotoSessionDetailsScreen(
                 Spacer(modifier = Modifier.height(4.dp))
                 LazyRow {
                     items(viewModel.photoState) { photoUrl ->
-                        GlideImage(
+                        ImageItem(
                             model = photoUrl,
-                            contentDescription = null,
-                            contentScale = ContentScale.Crop,
-                            modifier = Modifier
-                                .padding(4.dp)
-                                .clip(RoundedCornerShape(4.dp))
-                                .size(80.dp)
+                            size = 80.dp,
+                            roundedCornerSize = 4.dp,
+                            padding = 4.dp
                         )
                     }
                 }
@@ -123,13 +117,10 @@ fun PhotoSessionDetailsScreen(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Row {
-                    GlideImage(
+                    ImageItem(
                         model = viewModel.organizerState.value.avatarUrl,
-                        contentDescription = null,
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(24.dp))
-                            .size(70.dp)
+                        size = 70.dp,
+                        roundedCornerSize = 24.dp,
                     )
                     Spacer(modifier = Modifier.width(30.dp))
                     Column {
@@ -159,13 +150,10 @@ fun PhotoSessionDetailsScreen(
                 LazyColumn {
                     items(viewModel.participantsState) { searchItem ->
                         Row {
-                            GlideImage(
+                            ImageItem(
                                 model = searchItem.avatarUrl,
-                                contentDescription = null,
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier
-                                    .clip(RoundedCornerShape(24.dp))
-                                    .size(70.dp)
+                                size = 70.dp,
+                                roundedCornerSize = 24.dp,
                             )
                             Spacer(modifier = Modifier.width(30.dp))
                             Column {
