@@ -19,6 +19,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.photoworld.R
@@ -30,6 +31,7 @@ import com.photoworld.presenter.theme.InterMedium18TextStyle
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun SearchItem(
+    navController: NavController,
     searchItemState: SearchItemState,
 ) {
     Column(
@@ -86,7 +88,7 @@ fun SearchItem(
         BaseButton(
             text = stringResource(R.string.add_button),
             contentPadding = ButtonDefaults.ContentPadding,
-            onClick = {},
+            onClick = { navController.navigateUp() },
         )
     }
 }

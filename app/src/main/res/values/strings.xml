@@ -10,6 +10,8 @@
     <string name="password_hint">Введите пароль</string>
     <string name="main">Главная</string>
     <string name="photo_sessions">Фотосессии</string>
+    <string name="create_photo_session">Создать фотосессию</string>
+    <string name="my_photo_sessions">Мои фотосессии</string>
     <string name="profile">Профиль</string>
     <string name="no_account_question">Нет аккаунта?</string>
     <string name="create_account">Зарегистрироваться</string>
@@ -49,4 +51,25 @@
     <string name="tags">Теги</string>
     <string name="search">Поиск</string>
     <string name="add_button">Добавить</string>
+    <string name="all">Все</string>
+    <string name="ended">Архив</string>
+    <string name="invitations">Приглашения</string>
+    <string name="current">В работе</string>
+    <string name="description">Описание</string>
+    <string name="photo_session_description_hint">Расскажите о фотосессии</string>
+    <string name="place">Место проведения</string>
+    <string name="place_hint">Город, Улица, Дом</string>
+    <string name="date">Дата</string>
+    <string name="date_and_time">Дата и время</string>
+    <string name="date_hint">ДД/ММ/ГГГГ</string>
+    <string name="time">Время</string>
+    <string name="time_hint">Введите время начала</string>
+    <string name="photo_session_duration">Продолжительность съемки</string>
+    <string name="photo_session_duration_hint">В часах</string>
+    <string name="create_photo_session_top_bar">Создание фотосессии</string>
+    <string name="photo_session_name">Название</string>
+    <string name="photo_session_name_hint">Введите название</string>
+    <string name="organizer">Организатор</string>
+    <string name="add_participant">Добавить участника</string>
+    <string name="participants">Участники</string>
 </resources>

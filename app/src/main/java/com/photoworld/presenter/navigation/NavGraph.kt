@@ -13,6 +13,9 @@ import com.photoworld.presenter.createprofile.tag.CreateProfileTagScreen
 import com.photoworld.presenter.login.LoginScreen
 import com.photoworld.presenter.main.MainScreen
 import com.photoworld.presenter.photosessions.PhotoSessionsScreen
+import com.photoworld.presenter.photosessions.create.image.CreatePhotoSessionImageScreen
+import com.photoworld.presenter.photosessions.create.info.CreatePhotoSessionInfoScreen
+import com.photoworld.presenter.photosessions.details.PhotoSessionDetailsScreen
 import com.photoworld.presenter.profile.ProfileScreen
 import com.photoworld.presenter.registration.RegistrationScreen
 
@@ -48,6 +51,15 @@ fun SetupNavGraph(
         }
         composable(route = Screen.CreateProfileAvatar.route) {
             CreateProfileAvatarScreen(navController = navController)
+        }
+        composable(route = Screen.CreatePhotoSessionInfo.route) {
+            CreatePhotoSessionInfoScreen(navController = navController)
+        }
+        composable(route = Screen.CreatePhotoSessionImage.route) {
+            CreatePhotoSessionImageScreen(navController = navController)
+        }
+        composable(route = Screen.PhotoSessionDetails.route) {
+            PhotoSessionDetailsScreen(navController = navController)
         }
         composable(route = Screen.BottomNavigationScreen.Main.route) {
             MainScreen(navController = navController)

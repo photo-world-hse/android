@@ -44,7 +44,10 @@ fun MainScreen(
                     modifier = Modifier.padding(bottom = 40.dp)
                 ) {
                     items(viewModel.searchResultState) { searchItem ->
-                        SearchItem(searchItem)
+                        SearchItem(
+                            navController = navController,
+                            searchItemState = searchItem,
+                        )
                     }
                 }
             }
