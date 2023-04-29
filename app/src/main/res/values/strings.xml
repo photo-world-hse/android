@@ -23,4 +23,21 @@
     <string name="confirm_button">Подтвердить</string>
     <string name="on_your_email">На вашу почту</string>
     <string name="code_send">отправлен код подтверждения регистрации</string>
+    <string name="what_do_you_do">Чем вы планируете заниматься?</string>
+    <string name="photographer">Фотограф</string>
+    <string name="model">Модель</string>
+    <string name="makeup_artist">Визажист</string>
+    <string name="skip">Пропустить</string>
+    <string name="continue_button">Продолжить</string>
+    <string name="create_profile_title">Создание профиля</string>
+    <string name="your_tags">Ваши специализации</string>
+    <string name="about_yourself">О себе</string>
+    <string name="about_yourself_hint">Расскажите о себе</string>
+    <string name="experience">Стаж работы</string>
+    <string name="experience_hint">В годах</string>
+    <string name="tags_info">Специалисты видят их и могут присылать свои предложения</string>
+    <string name="add_photo">Добавить фото</string>
+    <string name="add_avatar">Прикрепить фото</string>
+    <string name="add_avatar_title">Загрузите фото профиля</string>
+    <string name="add_avatar_info">Клиенты чаще выбирают специалистов с фото. Потом его можно будет поменять в анкете.</string>
 </resources>

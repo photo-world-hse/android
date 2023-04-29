@@ -24,7 +24,7 @@ class CodeViewModel @Inject constructor(
     }
 
     fun login() {
-        navigationManager.newRoot(Screen.BottomNavigationScreen.Main.route)
+        navigationManager.newRoot(Screen.CreateProfileStart.route)
     }
 
 }

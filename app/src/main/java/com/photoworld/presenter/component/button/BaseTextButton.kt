@@ -2,28 +2,22 @@ package com.photoworld.presenter.component.button
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.photoworld.presenter.theme.Blue600
+import com.photoworld.presenter.theme.Blue500
 import com.photoworld.presenter.theme.InterMedium16TextStyle
 
 @Composable
-fun BaseButton(
+fun BaseTextButton(
     text: String,
     onClick: () -> Unit,
-    backgroundColor: Color = Blue600,
     modifier: Modifier = Modifier,
 ) {
-    Button(
+    TextButton(
         onClick = onClick,
-        shape = RoundedCornerShape(8.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         contentPadding = PaddingValues(18.dp),
         modifier = modifier
             .fillMaxWidth()
@@ -31,6 +25,7 @@ fun BaseButton(
         Text(
             text = text,
             style = InterMedium16TextStyle,
+            color = Blue500,
         )
     }
 }

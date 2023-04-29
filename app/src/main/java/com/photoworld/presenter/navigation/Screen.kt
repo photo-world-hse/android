@@ -14,6 +14,16 @@ sealed class Screen(val route: String) {
 
     object Code : Screen(route = "code")
 
+    object CreateProfileStart : Screen(route = "create_profile_start")
+
+    object CreateProfileTag : Screen(route = "create_profile_tag")
+
+    object CreateProfileAbout : Screen(route = "create_profile_about")
+
+    object CreateProfileImage : Screen(route = "create_profile_image")
+
+    object CreateProfileAvatar : Screen(route = "create_profile_avatar")
+
     @Immutable
     sealed class BottomNavigationScreen(
         route: String,
