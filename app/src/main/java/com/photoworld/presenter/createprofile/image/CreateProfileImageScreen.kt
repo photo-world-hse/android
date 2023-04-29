@@ -16,14 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.grid.TwoColumnsVerticalImageGrid
 import com.photoworld.presenter.component.topbar.TopBar
 import com.photoworld.presenter.theme.Gray500
 
-@OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun CreateProfileImageScreen(
     navController: NavController,
