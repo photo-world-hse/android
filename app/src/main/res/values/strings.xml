@@ -47,4 +47,6 @@
     <string name="add_album">Добавить альбом</string>
     <string name="all_photos">Все фотографии</string>
     <string name="tags">Теги</string>
+    <string name="search">Поиск</string>
+    <string name="add_button">Добавить</string>
 </resources>

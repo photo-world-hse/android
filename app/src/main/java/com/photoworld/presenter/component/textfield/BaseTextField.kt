@@ -27,6 +27,7 @@ fun BaseTextField(
     onValueChange: (String) -> Unit,
     hint: String = "",
     topLabel: String = "",
+    leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -50,6 +51,7 @@ fun BaseTextField(
             backgroundColor = Gray700,
             cursorColor = White,
         ),
+        leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         placeholder = {
             Row {

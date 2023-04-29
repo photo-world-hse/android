@@ -15,7 +15,7 @@ class ProfileViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _mainAvatarUrlState =
-        mutableStateOf("https://besthqwallpapers.com/Uploads/18-7-2021/170488/thumb-chris-hemsworth-australian-actor-portrait-photoshoot-popular-actors.jpg")
+        mutableStateOf("https://sun9-76.userapi.com/impg/tFiwmC0q7nRKjfEuke3fs7zU8SYLrpCGJMsoOQ/i2jcaPW13vM.jpg?size=798x832&quality=96&sign=d52aec7d7c942312407d985f399aca47&type=album")
     val mainAvatarUrlState: State<String> = _mainAvatarUrlState
 
     private val _nameState = mutableStateOf("Кузнецов Михаил")
@@ -26,7 +26,7 @@ class ProfileViewModel @Inject constructor(
     val subScreensState: State<ProfileSubScreensState> = _subScreensState
 
     private var _photoState = mutableStateListOf(
-        "https://besthqwallpapers.com/Uploads/18-7-2021/170488/thumb-chris-hemsworth-australian-actor-portrait-photoshoot-popular-actors.jpg",
+        "https://sun9-76.userapi.com/impg/tFiwmC0q7nRKjfEuke3fs7zU8SYLrpCGJMsoOQ/i2jcaPW13vM.jpg?size=798x832&quality=96&sign=d52aec7d7c942312407d985f399aca47&type=album",
         "https://is5-ssl.mzstatic.com/image/thumb/Music123/v4/8a/b6/3a/8ab63ae5-748f-2b7d-977a-753c722fd4d7/artwork.jpg/200x200bb.jpg",
         "https://wearethecity.com/wp-content/uploads/2018/12/Iconic-Women-Meet-Feature.jpg",
     )
