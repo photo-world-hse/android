@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.photoworld.R
-import com.photoworld.presenter.component.item.ImageItem
+import com.photoworld.presenter.component.item.TwoColumnsVerticalImageGridItem
 import com.photoworld.presenter.theme.InterMedium14TextStyle
 
 @Composable
@@ -59,7 +59,7 @@ fun ProfilePhotoSubScreen(
             }
         }
         items(viewModel.photoState) { url ->
-            ImageItem(model = url)
+            TwoColumnsVerticalImageGridItem(model = url)
         }
     }
 }

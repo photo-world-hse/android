@@ -14,7 +14,7 @@ import com.bumptech.glide.integration.compose.GlideImage
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun ImageItem(
+fun TwoColumnsVerticalImageGridItem(
     model: String,
 ) {
     GlideImage(
