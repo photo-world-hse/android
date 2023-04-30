@@ -3,14 +3,21 @@ package com.photoworld.presenter.login
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.photoworld.domain.model.LoginInfo
+import com.photoworld.domain.usecase.IsLoginUseCase
+import com.photoworld.domain.usecase.LoginUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val navigationManager: NavigationManager,
+    private val loginUseCase: LoginUseCase,
+    private val isLoginUseCase: IsLoginUseCase,
 ) : ViewModel() {
 
     private val _emailState = mutableStateOf("")
@@ -28,6 +35,18 @@ class LoginViewModel @Inject constructor(
     }
 
     fun login() {
-        navigationManager.newRoot(Screen.BottomNavigationScreen.Main.route)
+        viewModelScope.launch {
+            try {
+                val loginInfo = LoginInfo(
+                    email = _emailState.value,
+                    password = _passwordState.value,
+                )
+                if (loginUseCase(loginInfo)) {
+                    navigationManager.newRoot(Screen.BottomNavigationScreen.Main.route)
+                }
+            } catch (error: Throwable) {
+                println(error)
+            }
+        }
     }
 }

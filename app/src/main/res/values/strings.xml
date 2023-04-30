@@ -72,4 +72,5 @@
     <string name="organizer">Организатор</string>
     <string name="add_participant">Добавить участника</string>
     <string name="participants">Участники</string>
+    <string name="preference_file_key">com.photoworld.PREFERENCE_FILE_KEY</string>
 </resources>
