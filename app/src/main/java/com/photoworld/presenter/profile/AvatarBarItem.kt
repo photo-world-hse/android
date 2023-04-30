@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ButtonDefaults
@@ -19,16 +18,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
-import com.bumptech.glide.integration.compose.GlideImage
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseButton
+import com.photoworld.presenter.component.item.ImageItem
 import com.photoworld.presenter.theme.Blue500
 import com.photoworld.presenter.theme.Gray500
 import com.photoworld.presenter.theme.Gray700
@@ -64,18 +61,16 @@ fun AvatarBarItem(
                     contentDescription = "add_profile",
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-                GlideImage(
+                ImageItem(
                     model = viewModel.mainAvatarUrlState.value,
-                    contentDescription = "main_avatar",
-                    contentScale = ContentScale.Crop,
+                    size = 90.dp,
+                    roundedCornerSize = 30.dp,
                     modifier = Modifier
                         .border(
                             width = 3.dp,
                             color = Blue500,
                             shape = RoundedCornerShape(30.dp),
                         )
-                        .clip(RoundedCornerShape(30.dp))
-                        .size(90.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Image(

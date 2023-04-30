@@ -13,10 +13,23 @@ fun SearchTextField(
     value: String,
     onValueChange: (String) -> Unit,
     onSearchClick: () -> Unit,
-    onFiltersClick: () -> Unit,
+    withFilters: Boolean = true,
+    onFiltersClick: () -> Unit = {},
     hint: String = stringResource(id = R.string.search),
     modifier: Modifier = Modifier,
 ) {
+    val trailingIcon: @Composable (() -> Unit)? = if (withFilters) {
+         {
+            IconButton(onClick = onFiltersClick) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_filters),
+                    contentDescription = "filters"
+                )
+            }
+        }
+    } else {
+        null
+    }
     BaseTextField(
         value = value,
         onValueChange = onValueChange,
@@ -29,14 +42,7 @@ fun SearchTextField(
                 )
             }
         },
-        trailingIcon = {
-            IconButton(onClick = onFiltersClick) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_filters),
-                    contentDescription = "filters"
-                )
-            }
-        },
+        trailingIcon = trailingIcon,
         modifier = modifier
     )
 }
