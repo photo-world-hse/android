@@ -2,6 +2,7 @@ package com.photoworld.presenter
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -20,15 +21,22 @@ class MainActivity : FragmentActivity() {
     @Inject
     lateinit var navigationManager: NavigationManager
 
+    private val viewModel: MainActivityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             PhotoWorldTheme {
                 navController = rememberNavController()
                 navigationManager.setNavController(navController)
+                val startDestination = if (viewModel.isLoginState.value) {
+                    Screen.BottomNavigationScreen.Main.route
+                } else {
+                    Screen.Login.route
+                }
                 SetupNavGraph(
                     navController = navController,
-                    startDestination = Screen.Login.route
+                    startDestination = startDestination
                 )
             }
         }
