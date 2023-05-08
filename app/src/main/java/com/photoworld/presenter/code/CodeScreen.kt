@@ -81,7 +81,7 @@ fun CodeScreen(
         bottomBar = {
             BaseButton(
                 text = stringResource(R.string.confirm_button),
-                onClick = viewModel::login,
+                onClick = viewModel::verify,
             )
         },
     )

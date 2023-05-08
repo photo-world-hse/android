@@ -12,7 +12,13 @@ sealed class Screen(val route: String) {
 
     object Registration : Screen(route = "registration")
 
-    object Code : Screen(route = "code")
+    class Code(email: String) : Screen(route = "$SCREEN_NAME/$email") {
+        companion object {
+            const val SCREEN_NAME = "email"
+            const val EMAIL_ARGUMENT = "email"
+            const val BASE_ROUTE = "$SCREEN_NAME/{$EMAIL_ARGUMENT}"
+        }
+    }
 
     object CreateProfileStart : Screen(route = "create_profile_start")
 

@@ -11,6 +11,7 @@ import com.photoworld.R
 fun EmailTextField(
     value: String,
     onValueChange: (String) -> Unit,
+    error: String = "",
     modifier: Modifier = Modifier,
 ) {
     BaseTextField(
@@ -18,6 +19,7 @@ fun EmailTextField(
         onValueChange = onValueChange,
         hint = stringResource(id = R.string.email_hint),
         topLabel = stringResource(id = R.string.email),
+        error = error,
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
         modifier = modifier
     )
