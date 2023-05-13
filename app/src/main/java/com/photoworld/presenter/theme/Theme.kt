@@ -14,6 +14,7 @@ private val LightColors = lightColors(
     secondary = White,
     background = Gray800,
     surface = Gray700,
+    error = Red500,
     onPrimary = White,
     onSecondary = White,
     onBackground = White,

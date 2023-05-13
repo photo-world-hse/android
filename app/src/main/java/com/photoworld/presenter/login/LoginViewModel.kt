@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.photoworld.domain.model.LoginInfo
-import com.photoworld.domain.usecase.IsLoginUseCase
 import com.photoworld.domain.usecase.LoginUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
@@ -17,7 +16,6 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor(
     private val navigationManager: NavigationManager,
     private val loginUseCase: LoginUseCase,
-    private val isLoginUseCase: IsLoginUseCase,
 ) : ViewModel() {
 
     private val _emailState = mutableStateOf("")

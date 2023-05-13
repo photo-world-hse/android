@@ -64,12 +64,14 @@ fun RegistrationScreen(
             )
             Spacer(modifier = Modifier.height(20.dp))
             PasswordTextField(
-                value = viewModel.passwordState.value,
+                value = viewModel.passwordState.value.text,
+                error = viewModel.passwordState.value.error.asString(),
                 onValueChange = viewModel::onPasswordChange,
             )
             Spacer(modifier = Modifier.height(20.dp))
             PasswordTextField(
-                value = viewModel.repeatPasswordState.value,
+                value = viewModel.repeatPasswordState.value.text,
+                error = viewModel.repeatPasswordState.value.error.asString(),
                 onValueChange = viewModel::onRepeatPasswordChange,
                 hint = stringResource(id = R.string.repeat_password_hint),
                 topLabel = stringResource(R.string.repeat_password),

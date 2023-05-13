@@ -22,6 +22,7 @@ fun PasswordTextField(
     onValueChange: (String) -> Unit,
     topLabel: String = stringResource(id = R.string.password),
     hint: String = stringResource(id = R.string.password_hint),
+    error: String = "",
     modifier: Modifier = Modifier,
 ) {
 
@@ -32,6 +33,7 @@ fun PasswordTextField(
         onValueChange = onValueChange,
         hint = hint,
         topLabel = topLabel,
+        error = error,
         visualTransformation = if (showPassword) {
             VisualTransformation.None
         } else {

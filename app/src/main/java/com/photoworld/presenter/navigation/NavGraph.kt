@@ -2,8 +2,10 @@ package com.photoworld.presenter.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import com.photoworld.presenter.code.CodeScreen
 import com.photoworld.presenter.createprofile.about.CreateProfileAboutScreen
 import com.photoworld.presenter.createprofile.avatar.CreateProfileAvatarScreen
@@ -34,7 +36,12 @@ fun SetupNavGraph(
         composable(route = Screen.Registration.route) {
             RegistrationScreen(navController = navController)
         }
-        composable(route = Screen.Code.route) {
+        composable(
+            route = Screen.Code.BASE_ROUTE,
+            arguments = listOf(
+                navArgument(Screen.Code.EMAIL_ARGUMENT) { type = NavType.StringType }
+            )
+        ) {
             CodeScreen(navController = navController)
         }
         composable(route = Screen.CreateProfileStart.route) {
