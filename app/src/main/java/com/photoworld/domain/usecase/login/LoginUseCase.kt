@@ -1,8 +1,8 @@
-package com.photoworld.domain.usecase
+package com.photoworld.domain.usecase.login
 
 import com.photoworld.data.repository.LoginRepository
-import com.photoworld.domain.mapper.LoginRequestDtoMapper
-import com.photoworld.domain.model.LoginInfo
+import com.photoworld.domain.mapper.login.LoginRequestDtoMapper
+import com.photoworld.domain.model.login.LoginInfo
 import javax.inject.Inject
 
 class LoginUseCase @Inject constructor(

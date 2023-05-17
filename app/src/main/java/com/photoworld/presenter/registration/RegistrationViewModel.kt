@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.photoworld.R
-import com.photoworld.domain.model.RegistrationInfo
-import com.photoworld.domain.usecase.RegisterUseCase
+import com.photoworld.domain.model.login.RegistrationInfo
+import com.photoworld.domain.usecase.login.RegisterUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import com.photoworld.presenter.state.TextFieldState

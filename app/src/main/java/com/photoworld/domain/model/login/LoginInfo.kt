@@ -1,4 +1,4 @@
-package com.photoworld.domain.model
+package com.photoworld.domain.model.login
 
 data class LoginInfo(
     val email: String,

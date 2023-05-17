@@ -1,7 +1,7 @@
-package com.photoworld.domain.mapper
+package com.photoworld.domain.mapper.login
 
-import com.photoworld.data.dto.registration.RegistrationRequestDto
-import com.photoworld.domain.model.RegistrationInfo
+import com.photoworld.data.dto.login.RegistrationRequestDto
+import com.photoworld.domain.model.login.RegistrationInfo
 import javax.inject.Inject
 
 class RegistrationRequestDtoMapper @Inject constructor() {

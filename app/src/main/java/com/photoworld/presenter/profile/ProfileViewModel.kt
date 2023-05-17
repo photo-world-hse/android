@@ -5,13 +5,18 @@ import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.photoworld.domain.usecase.profile.GetProfilesUseCase
 import com.photoworld.presenter.navigation.NavigationManager
+import com.photoworld.presenter.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val navigationManager: NavigationManager,
+    private val getProfilesUseCase: GetProfilesUseCase,
 ) : ViewModel() {
 
     private val _mainAvatarUrlState =
@@ -46,6 +51,19 @@ class ProfileViewModel @Inject constructor(
         "Выездная фотосъемка",
     )
     val tagState: SnapshotStateList<String> = _tagState
+
+    init {
+        viewModelScope.launch {
+            try {
+                val profilesInfo = getProfilesUseCase()
+                if (profilesInfo.profiles.isEmpty()) {
+                    navigationManager.replace(Screen.CreateProfileStart.route)
+                }
+            } catch (error: Throwable) {
+                println(error)
+            }
+        }
+    }
 
     fun onPhotosSelected() {
         _subScreensState.value = ProfileSubScreensState(isPhotoSubScreenSelected = true)

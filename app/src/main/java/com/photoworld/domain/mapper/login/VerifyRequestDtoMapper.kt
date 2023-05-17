@@ -1,7 +1,7 @@
-package com.photoworld.domain.mapper
+package com.photoworld.domain.mapper.login
 
-import com.photoworld.data.dto.verify.VerifyRequestDto
-import com.photoworld.domain.model.VerifyInfo
+import com.photoworld.data.dto.login.VerifyRequestDto
+import com.photoworld.domain.model.login.VerifyInfo
 import javax.inject.Inject
 
 class VerifyRequestDtoMapper @Inject constructor() {

@@ -8,6 +8,8 @@ import androidx.lifecycle.viewModelScope
 import com.photoworld.domain.model.LoginInfo
 import com.photoworld.domain.usecase.GetChatInfoUseCase
 import com.photoworld.domain.usecase.LoginUseCase
+import com.photoworld.domain.model.login.LoginInfo
+import com.photoworld.domain.usecase.login.LoginUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import com.photoworld.uitls.SendbirdUIKitInitializer

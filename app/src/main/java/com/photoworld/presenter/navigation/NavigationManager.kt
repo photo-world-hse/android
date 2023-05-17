@@ -14,8 +14,23 @@ class NavigationManager {
         this.navController = null
     }
 
+    fun navigateUp() {
+        navController?.navigateUp()
+    }
+
     fun navigate(route: String) {
         navController?.navigate(route = route)
+    }
+
+    fun replace(route: String) {
+        navController?.let { navController ->
+            navController.navigate(route = route) {
+                popUpTo(
+                    navController.previousBackStackEntry?.destination?.id
+                        ?: navController.graph.startDestinationId
+                )
+            }
+        }
     }
 
     fun newRoot(route: String) {
@@ -28,5 +43,4 @@ class NavigationManager {
             navController.graph.setStartDestination(route)
         }
     }
-
 }

@@ -9,6 +9,8 @@ import androidx.lifecycle.viewModelScope
 import com.photoworld.domain.model.VerifyInfo
 import com.photoworld.domain.usecase.GetChatInfoUseCase
 import com.photoworld.domain.usecase.VerifyUseCase
+import com.photoworld.domain.model.login.VerifyInfo
+import com.photoworld.domain.usecase.login.VerifyUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import com.photoworld.uitls.SendbirdUIKitInitializer

@@ -1,4 +1,4 @@
-package com.photoworld.data.dto.verify
+package com.photoworld.data.dto.login
 
 import com.google.gson.annotations.SerializedName
 
