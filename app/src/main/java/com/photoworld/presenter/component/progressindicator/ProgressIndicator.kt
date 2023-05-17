@@ -11,9 +11,9 @@ import com.photoworld.presenter.theme.Blue500
 @Composable
 fun ProgressIndicator() {
     Box(
-        contentAlignment = Alignment.Center,
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxSize(),
+        contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator(color = Blue500)
     }
