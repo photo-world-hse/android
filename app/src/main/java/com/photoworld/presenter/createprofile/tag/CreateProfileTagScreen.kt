@@ -20,6 +20,7 @@ import androidx.navigation.NavController
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.checkbox.CheckBoxItem
+import com.photoworld.presenter.component.progressindicator.ProgressIndicator
 import com.photoworld.presenter.component.topbar.TopBar
 import com.photoworld.presenter.theme.Gray400
 import com.photoworld.presenter.theme.InterMedium18TextStyle
@@ -47,31 +48,37 @@ fun CreateProfileTagScreen(
                     .fillMaxSize()
                     .padding(padding)
             ) {
-                Spacer(modifier = Modifier.height(20.dp))
-                Text(
-                    text = stringResource(id = R.string.your_tags),
-                    style = InterMedium18TextStyle,
-                )
-                Text(
-                    text = stringResource(id = R.string.tags_info),
-                    style = InterNormal14TextStyle,
-                    color = Gray400,
-                )
-                LazyColumn {
-                    itemsIndexed(viewModel.tagsState) { index, tag ->
-                        CheckBoxItem(isChecked = tag.isSelected, text = tag.text) {
-                            viewModel.onCheckChange(index)
+                if (viewModel.isLoadingState.value) {
+                    ProgressIndicator()
+                } else {
+                    Spacer(modifier = Modifier.height(20.dp))
+                    Text(
+                        text = stringResource(id = R.string.your_tags),
+                        style = InterMedium18TextStyle,
+                    )
+                    Text(
+                        text = stringResource(id = R.string.tags_info),
+                        style = InterNormal14TextStyle,
+                        color = Gray400,
+                    )
+                    LazyColumn {
+                        itemsIndexed(viewModel.tagsState) { index, tag ->
+                            CheckBoxItem(isChecked = tag.isSelected, text = tag.text) {
+                                viewModel.onCheckChange(index)
+                            }
                         }
                     }
+                    Spacer(modifier = Modifier.height(20.dp))
                 }
-                Spacer(modifier = Modifier.height(20.dp))
             }
         },
         bottomBar = {
-            BaseButton(
-                text = stringResource(R.string.continue_button),
-                onClick = viewModel::nextScreen,
-            )
+            if (!viewModel.isLoadingState.value) {
+                BaseButton(
+                    text = stringResource(R.string.continue_button),
+                    onClick = viewModel::nextScreen,
+                )
+            }
         }
     )
 }

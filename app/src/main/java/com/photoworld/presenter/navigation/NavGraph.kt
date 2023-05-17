@@ -47,16 +47,44 @@ fun SetupNavGraph(
         composable(route = Screen.CreateProfileStart.route) {
             CreateProfileStartScreen(navController = navController)
         }
-        composable(route = Screen.CreateProfileTag.route) {
+        composable(
+            route = Screen.CreateProfileTag.BASE_ROUTE,
+            arguments = listOf(
+                navArgument(Screen.CreateProfileTag.PROFILE_TYPE_ARGUMENT) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
             CreateProfileTagScreen(navController = navController)
         }
-        composable(route = Screen.CreateProfileAbout.route) {
+        composable(
+            route = Screen.CreateProfileAbout.BASE_ROUTE,
+            arguments = listOf(
+                navArgument(Screen.CreateProfileAbout.PROFILE_TYPE_ARGUMENT) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
             CreateProfileAboutScreen(navController = navController)
         }
-        composable(route = Screen.CreateProfileImage.route) {
+        composable(
+            route = Screen.CreateProfileImage.BASE_ROUTE,
+            arguments = listOf(
+                navArgument(Screen.CreateProfileImage.PROFILE_TYPE_ARGUMENT) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
             CreateProfileImageScreen(navController = navController)
         }
-        composable(route = Screen.CreateProfileAvatar.route) {
+        composable(
+            route = Screen.CreateProfileAvatar.BASE_ROUTE,
+            arguments = listOf(
+                navArgument(Screen.CreateProfileAvatar.PROFILE_TYPE_ARGUMENT) {
+                    type = NavType.StringType
+                }
+            )
+        ) {
             CreateProfileAvatarScreen(navController = navController)
         }
         composable(route = Screen.CreatePhotoSessionInfo.route) {

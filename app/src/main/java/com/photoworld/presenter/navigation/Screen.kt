@@ -22,13 +22,37 @@ sealed class Screen(val route: String) {
 
     object CreateProfileStart : Screen(route = "create_profile_start")
 
-    object CreateProfileTag : Screen(route = "create_profile_tag")
+    class CreateProfileTag(profileType: String) : Screen(route = "$SCREEN_NAME/$profileType") {
+        companion object {
+            const val SCREEN_NAME = "create_profile_tag"
+            const val PROFILE_TYPE_ARGUMENT = "profile_type"
+            const val BASE_ROUTE = "$SCREEN_NAME/{$PROFILE_TYPE_ARGUMENT}"
+        }
+    }
 
-    object CreateProfileAbout : Screen(route = "create_profile_about")
+    class CreateProfileAbout(profileType: String) : Screen(route = "$SCREEN_NAME/$profileType") {
+        companion object {
+            const val SCREEN_NAME = "create_profile_about"
+            const val PROFILE_TYPE_ARGUMENT = "profile_type"
+            const val BASE_ROUTE = "$SCREEN_NAME/{$PROFILE_TYPE_ARGUMENT}"
+        }
+    }
 
-    object CreateProfileImage : Screen(route = "create_profile_image")
+    class CreateProfileImage(profileType: String) : Screen(route = "$SCREEN_NAME/$profileType") {
+        companion object {
+            const val SCREEN_NAME = "create_profile_image"
+            const val PROFILE_TYPE_ARGUMENT = "profile_type"
+            const val BASE_ROUTE = "$SCREEN_NAME/{$PROFILE_TYPE_ARGUMENT}"
+        }
+    }
 
-    object CreateProfileAvatar : Screen(route = "create_profile_avatar")
+    class CreateProfileAvatar(profileType: String) : Screen(route = "$SCREEN_NAME/$profileType") {
+        companion object {
+            const val SCREEN_NAME = "create_profile_avatar"
+            const val PROFILE_TYPE_ARGUMENT = "profile_type"
+            const val BASE_ROUTE = "$SCREEN_NAME/{$PROFILE_TYPE_ARGUMENT}"
+        }
+    }
 
     object CreatePhotoSessionInfo : Screen(route = "create_photo_session_info")
 

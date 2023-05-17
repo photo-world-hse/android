@@ -1,5 +1,8 @@
 package com.photoworld.presenter.createprofile.avatar
 
+import android.Manifest
+import android.net.Uri
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -14,14 +17,19 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.isGranted
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.button.BaseTextButton
@@ -29,13 +37,27 @@ import com.photoworld.presenter.component.item.ImageItem
 import com.photoworld.presenter.component.topbar.TopBar
 import com.photoworld.presenter.theme.Gray400
 import com.photoworld.presenter.theme.InterNormal14TextStyle
+import com.photoworld.presenter.util.getFileByUri
 
-@OptIn(ExperimentalGlideComposeApi::class)
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CreateProfileAvatarScreen(
     navController: NavController,
     viewModel: CreateProfileAvatarViewModel = hiltViewModel(),
 ) {
+    val context = LocalContext.current
+    val galleryLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent(),
+        onResult = { uri: Uri? ->
+            uri?.let {
+                val file = context.getFileByUri(uri)
+                viewModel.onNewImage(file)
+            }
+        }
+    )
+    val readExternalStoragePermissionState =
+        rememberPermissionState(Manifest.permission.READ_EXTERNAL_STORAGE)
+
     Scaffold(
         modifier = Modifier
             .background(MaterialTheme.colors.background)
@@ -48,11 +70,6 @@ fun CreateProfileAvatarScreen(
             )
         },
         content = { padding ->
-            val galleryLauncher = rememberLauncherForActivityResult(
-                contract = ActivityResultContracts.GetContent(),
-                onResult = viewModel::onNewImage
-            )
-
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
@@ -88,7 +105,17 @@ fun CreateProfileAvatarScreen(
                 BaseTextButton(
                     text = stringResource(R.string.add_avatar),
                     onClick = {
-                        galleryLauncher.launch("image/*")
+                        when {
+                            readExternalStoragePermissionState.status.isGranted ->
+                                galleryLauncher.launch("image/*")
+                            readExternalStoragePermissionState.status.shouldShowRationale ->
+                                readExternalStoragePermissionState.launchPermissionRequest()
+                            else -> Toast.makeText(
+                                context,
+                                R.string.need_read_external_storage_permission,
+                                Toast.LENGTH_SHORT,
+                            ).show()
+                        }
                     },
                 )
             }
@@ -100,4 +127,7 @@ fun CreateProfileAvatarScreen(
             )
         }
     )
+    LaunchedEffect(Unit) {
+        readExternalStoragePermissionState.launchPermissionRequest()
+    }
 }

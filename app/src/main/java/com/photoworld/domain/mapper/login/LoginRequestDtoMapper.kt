@@ -1,7 +1,7 @@
-package com.photoworld.domain.mapper
+package com.photoworld.domain.mapper.login
 
 import com.photoworld.data.dto.login.LoginRequestDto
-import com.photoworld.domain.model.LoginInfo
+import com.photoworld.domain.model.login.LoginInfo
 import javax.inject.Inject
 
 class LoginRequestDtoMapper @Inject constructor() {
