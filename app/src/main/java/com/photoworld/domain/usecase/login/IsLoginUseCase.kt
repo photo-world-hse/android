@@ -1,4 +1,4 @@
-package com.photoworld.domain.usecase
+package com.photoworld.domain.usecase.login
 
 import com.photoworld.data.repository.LoginRepository
 import javax.inject.Inject

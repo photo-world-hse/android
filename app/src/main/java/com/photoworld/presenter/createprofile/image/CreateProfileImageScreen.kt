@@ -1,7 +1,5 @@
 package com.photoworld.presenter.createprofile.image
 
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -17,10 +15,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.photoworld.R
+import com.photoworld.presenter.component.button.AddImageButton
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.grid.TwoColumnsVerticalImageGrid
 import com.photoworld.presenter.component.topbar.TopBar
-import com.photoworld.presenter.theme.Gray500
 
 @Composable
 fun CreateProfileImageScreen(
@@ -39,24 +37,13 @@ fun CreateProfileImageScreen(
             )
         },
         content = { padding ->
-            val galleryLauncher = rememberLauncherForActivityResult(
-                contract = ActivityResultContracts.GetContent(),
-                onResult = viewModel::onNewImage
-            )
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
             ) {
                 Spacer(modifier = Modifier.height(20.dp))
-                BaseButton(
-                    text = stringResource(R.string.add_photo),
-                    backgroundColor = Gray500,
-                    onClick = {
-                        galleryLauncher.launch("image/*")
-                    },
-                )
+                AddImageButton(onResult = viewModel::onNewImage)
                 TwoColumnsVerticalImageGrid(uris = viewModel.imageState)
             }
         },
