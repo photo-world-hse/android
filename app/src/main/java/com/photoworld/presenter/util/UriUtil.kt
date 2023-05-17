@@ -11,7 +11,23 @@ import com.photoworld.presenter.util.Authority.DownloadsDocumentAuthority
 import com.photoworld.presenter.util.Authority.ExternalStorageDocumentAuthority
 import com.photoworld.presenter.util.Authority.GooglePhotosUriAuthority
 import com.photoworld.presenter.util.Authority.MediaDocumentAuthority
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
+
+internal fun Context.getMultipartBodyByUri(uri: Uri): MultipartBody.Part? {
+    val file = getFileByUri(uri)
+    return file?.let {
+        val requestBody =
+            file.asRequestBody(contentType = "image/*".toMediaTypeOrNull())
+        MultipartBody.Part.createFormData(
+            name = "file",
+            filename = file.name,
+            body = requestBody,
+        )
+    }
+}
 
 internal fun Context.getFileByUri(uri: Uri): File? {
     val imagePath = getPathByUri(uri)

@@ -37,7 +37,7 @@ import com.photoworld.presenter.component.item.ImageItem
 import com.photoworld.presenter.component.topbar.TopBar
 import com.photoworld.presenter.theme.Gray400
 import com.photoworld.presenter.theme.InterNormal14TextStyle
-import com.photoworld.presenter.util.getFileByUri
+import com.photoworld.presenter.util.getMultipartBodyByUri
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -50,8 +50,8 @@ fun CreateProfileAvatarScreen(
         contract = ActivityResultContracts.GetContent(),
         onResult = { uri: Uri? ->
             uri?.let {
-                val file = context.getFileByUri(uri)
-                viewModel.onNewImage(file)
+                val multipartBody = context.getMultipartBodyByUri(uri)
+                viewModel.onNewImage(multipartBody)
             }
         }
     )

@@ -12,10 +12,7 @@ import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
-import okhttp3.RequestBody.Companion.asRequestBody
-import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,17 +40,10 @@ class CreateProfileImageViewModel @Inject constructor(
         navigationManager.navigate(Screen.CreateProfileAvatar(profileType.value).route)
     }
 
-    fun onNewImage(file: File?) {
+    fun onNewImage(multipartBody: MultipartBody.Part?) {
         viewModelScope.launch {
             try {
-                file?.let {
-                    val requestBody =
-                        file.asRequestBody(contentType = "image/*".toMediaTypeOrNull())
-                    val multipartBody: MultipartBody.Part = MultipartBody.Part.createFormData(
-                        name = "file",
-                        filename = file.name,
-                        body = requestBody,
-                    )
+                multipartBody?.let {
                     val imageUrl = uploadImageUseCase(file = multipartBody)
                     _imageState.add(imageUrl)
                 }

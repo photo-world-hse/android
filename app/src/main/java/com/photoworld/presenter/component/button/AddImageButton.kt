@@ -14,21 +14,21 @@ import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
 import com.photoworld.R
 import com.photoworld.presenter.theme.Gray500
-import com.photoworld.presenter.util.getFileByUri
-import java.io.File
+import com.photoworld.presenter.util.getMultipartBodyByUri
+import okhttp3.MultipartBody
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun AddImageButton(
-    onResult: (file: File?) -> Unit
+    onResult: (multipartBody: MultipartBody.Part?) -> Unit
 ) {
     val context = LocalContext.current
     val galleryLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent(),
         onResult = { uri: Uri? ->
             uri?.let {
-                val file = context.getFileByUri(uri)
-                onResult(file)
+                val multipartBody = context.getMultipartBodyByUri(uri)
+                onResult(multipartBody)
             }
         }
     )
