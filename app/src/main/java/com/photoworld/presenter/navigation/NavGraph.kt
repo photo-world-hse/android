@@ -6,6 +6,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.photoworld.presenter.chat.ChatScreen
+import com.photoworld.presenter.chat.dialogs.DialogsScreen
 import com.photoworld.presenter.code.CodeScreen
 import com.photoworld.presenter.createprofile.about.CreateProfileAboutScreen
 import com.photoworld.presenter.createprofile.avatar.CreateProfileAvatarScreen
@@ -68,6 +70,20 @@ fun SetupNavGraph(
         composable(route = Screen.PhotoSessionDetails.route) {
             PhotoSessionDetailsScreen(navController = navController)
         }
+        composable(
+            route = Screen.ChatScreen.ROUTE_WITH_ARGS,
+            arguments = listOf(
+                navArgument(Screen.ChatScreen.CHAT_URL_ARG) {
+                    type = NavType.StringType
+                    defaultValue = ""
+                },
+            ),
+        ) { backStackEntry ->
+            ChatScreen(
+                chatUrl = backStackEntry.arguments?.getString(Screen.ChatScreen.CHAT_URL_ARG),
+                navController = navController,
+            )
+        }
         composable(route = Screen.BottomNavigationScreen.Main.route) {
             MainScreen(navController = navController)
         }
@@ -76,6 +92,9 @@ fun SetupNavGraph(
         }
         composable(route = Screen.BottomNavigationScreen.Profile.route) {
             ProfileScreen(navController = navController)
+        }
+        composable(route = Screen.BottomNavigationScreen.Chat.route) {
+            DialogsScreen(navController = navController)
         }
     }
 }

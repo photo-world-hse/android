@@ -1,7 +1,7 @@
 package com.photoworld.data.retrofit
 
+import com.photoworld.data.dto.login.AuthDataDto
 import com.photoworld.data.dto.login.LoginRequestDto
-import com.photoworld.data.dto.login.TokenDto
 import com.photoworld.data.dto.registration.RegistrationRequestDto
 import com.photoworld.data.dto.verify.VerifyRequestDto
 import retrofit2.http.Body
@@ -13,7 +13,7 @@ interface ClientAPI {
     suspend fun login(
         @Body
         loginRequestDto: LoginRequestDto,
-    ): TokenDto
+    ): AuthDataDto
 
     @POST("auth/register")
     suspend fun register(
@@ -25,6 +25,6 @@ interface ClientAPI {
     suspend fun verify(
         @Body
         verifyRequestDto: VerifyRequestDto,
-    ): TokenDto
+    ): AuthDataDto
 
 }

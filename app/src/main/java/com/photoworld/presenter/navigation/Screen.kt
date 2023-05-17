@@ -36,6 +36,19 @@ sealed class Screen(val route: String) {
 
     object PhotoSessionDetails : Screen(route = "photo_session_details")
 
+    data class ChatScreen(val chatUrl: String) : Screen(route = getRouteWithArgs(chatUrl)) {
+
+        companion object {
+
+            private const val ROUTE = "chat_screen"
+            const val CHAT_URL_ARG = "chatUrl"
+            const val ROUTE_WITH_ARGS = "$ROUTE?$CHAT_URL_ARG={$CHAT_URL_ARG}"
+
+            fun getRouteWithArgs(chatUrl: String): String =
+                ROUTE_WITH_ARGS.replace("{$CHAT_URL_ARG}", chatUrl)
+        }
+    }
+
     @Immutable
     sealed class BottomNavigationScreen(
         route: String,
@@ -48,13 +61,19 @@ sealed class Screen(val route: String) {
         object Main : BottomNavigationScreen(
             route = "main",
             title = R.string.main,
-            icon = R.drawable.ic_main
+            icon = R.drawable.ic_main,
         )
 
         object PhotoSessions : BottomNavigationScreen(
             route = "photo_sessions",
             title = R.string.photo_sessions,
-            icon = R.drawable.ic_camera
+            icon = R.drawable.ic_camera,
+        )
+
+        object Chat : BottomNavigationScreen(
+            route = "chats",
+            title = R.string.chat,
+            icon = R.drawable.ic_chat,
         )
 
         object Profile : BottomNavigationScreen(

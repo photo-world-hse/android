@@ -13,11 +13,8 @@ class LoginUseCase @Inject constructor(
 
     suspend operator fun invoke(loginInfo: LoginInfo): Boolean {
         val loginRequestDto = loginRequestDtoMapper.map(loginInfo)
-        val token = loginRepository.login(loginRequestDto).token ?: ""
-        if (token.isNotBlank()) {
-            loginRepository.saveToken(token)
-        }
+        val authData = loginRepository.login(loginRequestDto)
+        loginRepository.saveAuthData(authData)
         return isLoginUseCase()
     }
-
 }

@@ -22,6 +22,7 @@ fun BottomNavigation(
     val items = listOf(
         Screen.BottomNavigationScreen.Main,
         Screen.BottomNavigationScreen.PhotoSessions,
+        Screen.BottomNavigationScreen.Chat,
         Screen.BottomNavigationScreen.Profile,
     )
     BottomNavigation(

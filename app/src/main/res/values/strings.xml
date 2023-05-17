@@ -13,6 +13,7 @@
     <string name="create_photo_session">Создать фотосессию</string>
     <string name="my_photo_sessions">Мои фотосессии</string>
     <string name="profile">Профиль</string>
+    <string name="chat">Мессенджер</string>
     <string name="no_account_question">Нет аккаунта?</string>
     <string name="create_account">Зарегистрироваться</string>
     <string name="create_account_button">Создать аккаунт</string>

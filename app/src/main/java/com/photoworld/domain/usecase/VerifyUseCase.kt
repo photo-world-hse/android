@@ -13,10 +13,8 @@ class VerifyUseCase @Inject constructor(
 
     suspend operator fun invoke(verifyInfo: VerifyInfo): Boolean {
         val verifyRequestDto = verifyRequestDtoMapper.map(verifyInfo)
-        val token = loginRepository.verify(verifyRequestDto).token ?: ""
-        if (token.isNotBlank()) {
-            loginRepository.saveToken(token)
-        }
+        val authData = loginRepository.verify(verifyRequestDto)
+        loginRepository.saveAuthData(authData)
         return isLoginUseCase()
     }
 

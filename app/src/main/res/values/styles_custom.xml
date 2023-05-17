@@ -1,0 +1,5 @@
+<resources>
+    <style name="CustomChannelListStyle" parent="Module.Dark.ChannelList">
+        <item name="sb_channel_preview_background">@color/background</item>
+    </style>
+</resources>
