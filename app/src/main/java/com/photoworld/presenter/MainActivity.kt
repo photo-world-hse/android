@@ -10,6 +10,7 @@ import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import com.photoworld.presenter.navigation.SetupNavGraph
 import com.photoworld.presenter.theme.PhotoWorldTheme
+import com.photoworld.uitls.SendbirdUIKitInitializer
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -21,10 +22,14 @@ class MainActivity : FragmentActivity() {
     @Inject
     lateinit var navigationManager: NavigationManager
 
+    @Inject
+    lateinit var sendbirdUIKitInitializer: SendbirdUIKitInitializer
+
     private val viewModel: MainActivityViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel.chatInfoState.value?.let { sendbirdUIKitInitializer.init(it) }
         setContent {
             PhotoWorldTheme {
                 navController = rememberNavController()
@@ -36,7 +41,7 @@ class MainActivity : FragmentActivity() {
                 }
                 SetupNavGraph(
                     navController = navController,
-                    startDestination = startDestination
+                    startDestination = startDestination,
                 )
             }
         }
@@ -46,5 +51,4 @@ class MainActivity : FragmentActivity() {
         navigationManager.deleteNavController()
         super.onDestroy()
     }
-
 }

@@ -1,8 +1,8 @@
 package com.photoworld.data.retrofit
 
+import com.photoworld.data.dto.login.AuthDataDto
 import com.photoworld.data.dto.login.LoginRequestDto
 import com.photoworld.data.dto.login.RegistrationRequestDto
-import com.photoworld.data.dto.login.TokenDto
 import com.photoworld.data.dto.login.VerifyRequestDto
 import com.photoworld.data.dto.profile.CreateProfileModelRequestDto
 import com.photoworld.data.dto.profile.CreateProfilePhotographerRequestDto
@@ -26,7 +26,7 @@ interface ClientAPI {
     suspend fun login(
         @Body
         loginRequestDto: LoginRequestDto,
-    ): TokenDto
+    ): AuthDataDto
 
     @POST("auth/register")
     suspend fun register(
@@ -38,7 +38,7 @@ interface ClientAPI {
     suspend fun verify(
         @Body
         verifyRequestDto: VerifyRequestDto,
-    ): TokenDto
+    ): AuthDataDto
 
     @GET("profiles")
     suspend fun getProfiles(

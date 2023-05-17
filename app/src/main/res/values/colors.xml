@@ -7,4 +7,27 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="blue_500">#FF3F83F8</color>
+    <color name="blue_600">#FF1C64F2</color>
+    <color name="red_500">#FFF05252</color>
+    <color name="gray_200">#FFE5E7EB</color>
+    <color name="gray_300">#FFD1D5DB</color>
+    <color name="gray_400">#FF9CA3AF</color>
+    <color name="gray_500">#FF6B7280</color>
+    <color name="gray_600">#FF4B5563</color>
+    <color name="gray_700">#FF374151</color>
+    <color name="gray_800">#FF1F2A37</color>
+    <color name="gray_900">#FF111928</color>
+    <color name="gray_1000">#161616</color>
+
+    <color name="primary">@color/gray_800</color>
+    <color name="secondary">@color/white</color>
+    <color name="background">@color/gray_800</color>
+    <color name="surface">@color/gray_700</color>
+    <color name="error">@color/red_500</color>
+    <color name="onPrimary">@color/white</color>
+    <color name="onSecondary">@color/white</color>
+    <color name="onBackground">@color/white</color>
+    <color name="onSurface">@color/white</color>
 </resources>

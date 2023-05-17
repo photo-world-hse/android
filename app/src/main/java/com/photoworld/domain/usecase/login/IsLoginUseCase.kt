@@ -8,7 +8,6 @@ class IsLoginUseCase @Inject constructor(
 ) {
 
     operator fun invoke(): Boolean {
-        return loginRepository.getToken().isNotBlank()
+        return loginRepository.getTokenOrNull() != null
     }
-
 }
