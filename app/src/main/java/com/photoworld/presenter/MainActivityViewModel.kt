@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.photoworld.domain.model.ChatInfo
 import com.photoworld.domain.usecase.GetChatInfoUseCase
-import com.photoworld.domain.usecase.IsLoginUseCase
 import com.photoworld.domain.usecase.login.IsLoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

@@ -3,7 +3,6 @@ package com.photoworld.data.retrofit
 import com.photoworld.data.dto.login.AuthDataDto
 import com.photoworld.data.dto.login.LoginRequestDto
 import com.photoworld.data.dto.login.RegistrationRequestDto
-import com.photoworld.data.dto.login.TokenDto
 import com.photoworld.data.dto.login.VerifyRequestDto
 import com.photoworld.data.dto.profile.CreateProfileModelRequestDto
 import com.photoworld.data.dto.profile.CreateProfilePhotographerRequestDto
@@ -12,8 +11,6 @@ import com.photoworld.data.dto.profile.ProfilesResponseDto
 import com.photoworld.data.dto.profile.TagsResponseDto
 import com.photoworld.data.dto.profile.UploadImageResponseDto
 import okhttp3.MultipartBody
-import com.photoworld.data.dto.registration.RegistrationRequestDto
-import com.photoworld.data.dto.verify.VerifyRequestDto
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header

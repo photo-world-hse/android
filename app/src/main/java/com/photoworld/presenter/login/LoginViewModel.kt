@@ -5,10 +5,8 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.photoworld.domain.model.LoginInfo
-import com.photoworld.domain.usecase.GetChatInfoUseCase
-import com.photoworld.domain.usecase.LoginUseCase
 import com.photoworld.domain.model.login.LoginInfo
+import com.photoworld.domain.usecase.GetChatInfoUseCase
 import com.photoworld.domain.usecase.login.LoginUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen

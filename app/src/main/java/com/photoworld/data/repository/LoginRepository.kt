@@ -4,10 +4,7 @@ import androidx.annotation.CheckResult
 import com.photoworld.data.dto.login.AuthDataDto
 import com.photoworld.data.dto.login.LoginRequestDto
 import com.photoworld.data.dto.login.RegistrationRequestDto
-import com.photoworld.data.dto.login.TokenDto
 import com.photoworld.data.dto.login.VerifyRequestDto
-import com.photoworld.data.dto.registration.RegistrationRequestDto
-import com.photoworld.data.dto.verify.VerifyRequestDto
 import com.photoworld.data.retrofit.ClientAPI
 import com.photoworld.data.sharedpreferences.SharedPreferencesController
 import com.photoworld.data.sharedpreferences.SharedPreferencesKey
@@ -54,8 +51,12 @@ class LoginRepository @Inject constructor(
         }
     }
 
-    fun getToken(): String? {
+    fun getTokenOrNull(): String? {
         return sharedPreferencesController.get(SharedPreferencesKey.BEARER_TOKEN)
+    }
+
+    fun getToken(): String {
+        return sharedPreferencesController.get(SharedPreferencesKey.BEARER_TOKEN) ?: ""
     }
 
     fun getChatInfo(): ChatInfo? = sharedPreferencesController.get(SharedPreferencesKey.CHAT_INFO)
