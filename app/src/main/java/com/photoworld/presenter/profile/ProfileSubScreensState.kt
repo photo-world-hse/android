@@ -6,4 +6,5 @@ import androidx.compose.runtime.Immutable
 data class ProfileSubScreensState(
     val isPhotoSubScreenSelected: Boolean = false,
     val isInfoSubScreenSelected: Boolean = false,
+    val isFeedbackSubScreenSelected: Boolean = false,
 )

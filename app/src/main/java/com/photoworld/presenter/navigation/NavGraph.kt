@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.photoworld.presenter.chat.ChatScreen
+import com.photoworld.presenter.chat.dialogs.DialogScreen
 import com.photoworld.presenter.chat.dialogs.DialogsScreen
 import com.photoworld.presenter.code.CodeScreen
 import com.photoworld.presenter.createprofile.about.CreateProfileAboutScreen
@@ -21,7 +22,12 @@ import com.photoworld.presenter.photosessions.PhotoSessionsScreen
 import com.photoworld.presenter.photosessions.create.image.CreatePhotoSessionImageScreen
 import com.photoworld.presenter.photosessions.create.info.CreatePhotoSessionInfoScreen
 import com.photoworld.presenter.photosessions.details.PhotoSessionDetailsScreen
+import com.photoworld.presenter.photosessions.details.finish.FinishPhotoSessionScreen
+import com.photoworld.presenter.photosessions.details.finish.feedback.FeedbackScreen
+import com.photoworld.presenter.photosessions.details.finish.photo.FinishPhotosScreen
 import com.photoworld.presenter.profile.ProfileScreen
+import com.photoworld.presenter.profile.settings.ProfileSettingsScreen
+import com.photoworld.presenter.profile.settings.privateinfo.PrivateInfoSettingsScreen
 import com.photoworld.presenter.registration.RegistrationScreen
 
 @Composable
@@ -127,6 +133,24 @@ fun SetupNavGraph(
         }
         composable(route = Screen.Filters.route) {
             FiltersScreen(navController = navController)
+        }
+        composable(route = Screen.FinishPhotoSession.route) {
+            FinishPhotoSessionScreen(navController = navController)
+        }
+        composable(route = Screen.Feedback.route) {
+            FeedbackScreen(navController = navController)
+        }
+        composable(route = Screen.Dialog.route) {
+            DialogScreen(navController = navController)
+        }
+        composable(route = Screen.FinishPhotos.route) {
+            FinishPhotosScreen(navController = navController)
+        }
+        composable(route = Screen.ProfileSettings.route) {
+            ProfileSettingsScreen(navController = navController)
+        }
+        composable(route = Screen.PrivateInfoSettings.route) {
+            PrivateInfoSettingsScreen(navController = navController)
         }
     }
 }

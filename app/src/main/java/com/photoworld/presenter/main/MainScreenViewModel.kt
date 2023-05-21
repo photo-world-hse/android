@@ -8,13 +8,14 @@ import androidx.lifecycle.ViewModel
 import com.photoworld.data.datastore.FiltersDataStore
 import com.photoworld.data.model.ProfileType
 import com.photoworld.presenter.navigation.NavigationManager
+import com.photoworld.presenter.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class MainScreenViewModel @Inject constructor(
     private val navigationManager: NavigationManager,
-    private val filtersDataStore: FiltersDataStore,
+    val filtersDataStore: FiltersDataStore,
 ) : ViewModel() {
 
     private val _searchState = mutableStateOf("")
@@ -108,4 +109,15 @@ class MainScreenViewModel @Inject constructor(
         _searchResultState.clear()
         _searchResultState.addAll(searchUsers())
     }
+
+    fun addUser(searchItemState: SearchItemState) {
+        filtersDataStore.addUser(searchItemState)
+        navigationManager.navigate(Screen.PhotoSessionDetails.route)
+    }
+
+    fun chat(searchItemState: SearchItemState) {
+        filtersDataStore.setChatUser(searchItemState)
+        navigationManager.navigate(Screen.Dialog.route)
+    }
+
 }

@@ -1,6 +1,5 @@
 package com.photoworld.presenter.login
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -11,7 +10,6 @@ import com.photoworld.domain.usecase.login.LoginUseCase
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
 import com.photoworld.uitls.SendbirdUIKitInitializer
-import com.sendbird.uikit.SendbirdUIKit
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -46,16 +44,17 @@ class LoginViewModel @Inject constructor(
                     password = _passwordState.value,
                 )
                 if (loginUseCase(loginInfo)) {
-                    val chatInfo = getChatInfoUseCase()
-                    if (chatInfo != null) {
-                        sendbirdUIKitInitializer.init(chatInfo)
-                        SendbirdUIKit.connect { _, e ->
-                            if (e != null) Log.e("SendbirdConnect", e.stackTraceToString())
-                            openMainScreen()
-                        }
-                    } else {
-                        openMainScreen()
-                    }
+                    // val chatInfo = getChatInfoUseCase()
+                    // if (chatInfo != null) {
+                    //     sendbirdUIKitInitializer.init(chatInfo)
+                    //     SendbirdUIKit.connect { _, e ->
+                    //         if (e != null) Log.e("SendbirdConnect", e.stackTraceToString())
+                    //         openMainScreen()
+                    //     }
+                    // } else {
+                    //     openMainScreen()
+                    // }
+                    navigationManager.newRoot(Screen.BottomNavigationScreen.Profile.route)
                 }
             } catch (error: Throwable) {
                 println(error)

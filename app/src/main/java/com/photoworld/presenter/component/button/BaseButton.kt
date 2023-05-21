@@ -12,12 +12,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.photoworld.presenter.theme.Blue600
 import com.photoworld.presenter.theme.InterMedium16TextStyle
+import com.photoworld.presenter.theme.White
 
 @Composable
 fun BaseButton(
     text: String,
     onClick: () -> Unit,
     backgroundColor: Color = Blue600,
+    contentColor: Color = White,
     contentPadding: PaddingValues = PaddingValues(18.dp),
     modifier: Modifier = Modifier,
 ) {
@@ -32,6 +34,7 @@ fun BaseButton(
         Text(
             text = text,
             style = InterMedium16TextStyle,
+            color = contentColor,
         )
     }
 }

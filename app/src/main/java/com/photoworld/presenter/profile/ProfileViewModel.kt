@@ -44,11 +44,8 @@ class ProfileViewModel @Inject constructor(
     val experienceState: State<String> = _experienceState
 
     private var _tagState = mutableStateListOf(
-        "Обучение",
-        "Студийная съемка",
-        "Ню фотография",
-        "Семейная съемка",
-        "Выездная фотосъемка",
+        "Портретный фотограф",
+        "ТФП",
     )
     val tagState: SnapshotStateList<String> = _tagState
 
@@ -71,6 +68,10 @@ class ProfileViewModel @Inject constructor(
 
     fun onInfoSelected() {
         _subScreensState.value = ProfileSubScreensState(isInfoSubScreenSelected = true)
+    }
+
+    fun onFeedbackSelected() {
+        _subScreensState.value = ProfileSubScreensState(isFeedbackSubScreenSelected = true)
     }
 
 }

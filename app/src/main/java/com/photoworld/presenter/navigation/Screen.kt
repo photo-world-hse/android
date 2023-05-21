@@ -75,6 +75,18 @@ sealed class Screen(val route: String) {
 
     object Filters : Screen(route = "filters")
 
+    object FinishPhotoSession : Screen(route = "finish_photo_session")
+
+    object Feedback : Screen(route = "feedback")
+
+    object Dialog : Screen(route = "dialog")
+
+    object FinishPhotos : Screen(route = "finish_photos")
+
+    object ProfileSettings : Screen(route = "profile_settings")
+
+    object PrivateInfoSettings : Screen(route = "private_info_settings")
+
     @Immutable
     sealed class BottomNavigationScreen(
         route: String,

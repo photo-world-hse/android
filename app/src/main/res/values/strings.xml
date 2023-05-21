@@ -55,6 +55,7 @@
     <string name="all">Все</string>
     <string name="ended">Архив</string>
     <string name="invitations">Приглашения</string>
+    <string name="invitation">Приглашение</string>
     <string name="current">В работе</string>
     <string name="description">Описание</string>
     <string name="category">Категория</string>
@@ -84,4 +85,23 @@
     <string name="filters">Фильтры</string>
     <string name="save">Сохранить</string>
     <string name="write">Написать</string>
+    <string name="end">Завершить</string>
+    <string name="ending">Завершение</string>
+    <string name="add_feedback">Оставить отзыв</string>
+    <string name="feedback">Отзывы</string>
+    <string name="add_feedback_to_user">Оцените пользователя</string>
+    <string name="send">Отправить</string>
+    <string name="comment">Комментарий</string>
+    <string name="tell_more">Расскажите подробнее</string>
+    <string name="message">Сообщение</string>
+    <string name="accept">Принять</string>
+    <string name="reject">Отклонить</string>
+    <string name="finished">Завершена</string>
+    <string name="calendar">Календарь</string>
+    <string name="list">Список</string>
+    <string name="logout">Выйти</string>
+    <string name="go_to_chat">Перейти в чат</string>
+    <string name="change_photo">Изменить фото профиля</string>
+    <string name="private_data">Личные данные</string>
+    <string name="profile_info">Информация о профиле</string>
 </resources>

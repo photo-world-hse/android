@@ -31,7 +31,12 @@ fun ProfileScreen(
                 modifier = Modifier
                     .padding(padding.calculateTopPadding() + 16.dp)
             ) {
-                AvatarBarItem()
+                AvatarBarItem(
+                    navController = navController,
+                    url = viewModel.mainAvatarUrlState.value,
+                    name = viewModel.nameState.value,
+                    isProfile = true,
+                )
                 Spacer(modifier = Modifier.height(12.dp))
                 Row {
                     SelectableItem(
@@ -43,6 +48,11 @@ fun ProfileScreen(
                         text = stringResource(id = R.string.info),
                         isSelected = viewModel.subScreensState.value.isInfoSubScreenSelected,
                         onSelect = viewModel::onInfoSelected,
+                    )
+                    SelectableItem(
+                        text = stringResource(id = R.string.feedback),
+                        isSelected = viewModel.subScreensState.value.isFeedbackSubScreenSelected,
+                        onSelect = viewModel::onFeedbackSelected,
                     )
                 }
                 Spacer(modifier = Modifier.height(12.dp))

@@ -14,12 +14,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.photoworld.R
 import com.photoworld.presenter.component.button.AddImageButton
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.grid.TwoColumnsVerticalImageGrid
 import com.photoworld.presenter.component.topbar.TopBar
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun CreateProfileImageScreen(
     navController: NavController,

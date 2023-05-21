@@ -21,11 +21,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.photoworld.R
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.item.ImageItem
+import com.photoworld.presenter.navigation.Screen
 import com.photoworld.presenter.theme.Blue500
 import com.photoworld.presenter.theme.Gray500
 import com.photoworld.presenter.theme.Gray700
@@ -34,7 +35,10 @@ import com.photoworld.presenter.theme.InterNormal14TextStyle
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun AvatarBarItem(
-    viewModel: ProfileViewModel = hiltViewModel(),
+    navController: NavController,
+    url: String,
+    name: String,
+    isProfile: Boolean,
 ) {
     Box(modifier = Modifier.fillMaxWidth()) {
         Box(
@@ -62,7 +66,7 @@ fun AvatarBarItem(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 ImageItem(
-                    model = viewModel.mainAvatarUrlState.value,
+                    model = url,
                     size = 90.dp,
                     roundedCornerSize = 30.dp,
                     modifier = Modifier
@@ -80,7 +84,7 @@ fun AvatarBarItem(
             }
             Spacer(modifier = Modifier.height(5.dp))
             Text(
-                text = viewModel.nameState.value,
+                text = name,
                 style = MaterialTheme.typography.subtitle1,
             )
             Spacer(modifier = Modifier.height(5.dp))
@@ -89,12 +93,21 @@ fun AvatarBarItem(
                 style = InterNormal14TextStyle,
             )
             Spacer(modifier = Modifier.height(5.dp))
-            BaseButton(
-                text = stringResource(R.string.profile_settings),
-                backgroundColor = Gray500,
-                contentPadding = ButtonDefaults.ContentPadding,
-                onClick = {},
-            )
+            if (isProfile) {
+                BaseButton(
+                    text = stringResource(R.string.profile_settings),
+                    backgroundColor = Gray500,
+                    contentPadding = ButtonDefaults.ContentPadding,
+                    onClick = { navController.navigate(Screen.ProfileSettings.route) },
+                )
+            } else {
+                BaseButton(
+                    text = stringResource(R.string.change_photo),
+                    backgroundColor = Gray500,
+                    contentPadding = ButtonDefaults.ContentPadding,
+                    onClick = { },
+                )
+            }
         }
     }
 }

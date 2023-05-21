@@ -47,6 +47,9 @@ fun MainScreen(
                         SearchItem(
                             navController = navController,
                             searchItemState = searchItem,
+                            isAdd = viewModel.filtersDataStore.isAdd(),
+                            onAdd = viewModel::addUser,
+                            onChat = viewModel::chat,
                         )
                     }
                 }
