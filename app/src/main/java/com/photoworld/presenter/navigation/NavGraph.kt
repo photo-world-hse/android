@@ -16,6 +16,7 @@ import com.photoworld.presenter.createprofile.start.CreateProfileStartScreen
 import com.photoworld.presenter.createprofile.tag.CreateProfileTagScreen
 import com.photoworld.presenter.login.LoginScreen
 import com.photoworld.presenter.main.MainScreen
+import com.photoworld.presenter.main.filters.FiltersScreen
 import com.photoworld.presenter.photosessions.PhotoSessionsScreen
 import com.photoworld.presenter.photosessions.create.image.CreatePhotoSessionImageScreen
 import com.photoworld.presenter.photosessions.create.info.CreatePhotoSessionInfoScreen
@@ -123,6 +124,9 @@ fun SetupNavGraph(
         }
         composable(route = Screen.BottomNavigationScreen.Chat.route) {
             DialogsScreen(navController = navController)
+        }
+        composable(route = Screen.Filters.route) {
+            FiltersScreen(navController = navController)
         }
     }
 }

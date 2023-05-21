@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.photoworld.R
+import com.photoworld.data.model.ProfileType
 import com.photoworld.presenter.component.button.BaseButton
 import com.photoworld.presenter.component.item.ImageItem
 import com.photoworld.presenter.theme.Gray600
@@ -41,8 +42,13 @@ fun SearchItem(
             )
             Spacer(modifier = Modifier.width(30.dp))
             Column {
+                val profileRes = when(searchItemState.profileType) {
+                    ProfileType.PHOTOGRAPHER -> R.string.photographer
+                    ProfileType.MODEL -> R.string.model
+                    ProfileType.VISAGIST -> R.string.makeup_artist
+                }
                 Text(
-                    text = stringResource(id = R.string.model),
+                    text = stringResource(id = profileRes),
                     style = InterMedium14TextStyle,
                     modifier = Modifier
                         .background(
@@ -74,7 +80,7 @@ fun SearchItem(
         }
         Spacer(modifier = Modifier.height(20.dp))
         BaseButton(
-            text = stringResource(R.string.add_button),
+            text = stringResource(R.string.write),
             contentPadding = ButtonDefaults.ContentPadding,
             onClick = { navController.navigateUp() },
         )

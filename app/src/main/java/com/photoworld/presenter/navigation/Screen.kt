@@ -73,6 +73,8 @@ sealed class Screen(val route: String) {
         }
     }
 
+    object Filters : Screen(route = "filters")
+
     @Immutable
     sealed class BottomNavigationScreen(
         route: String,

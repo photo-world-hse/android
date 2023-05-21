@@ -57,6 +57,10 @@
     <string name="invitations">Приглашения</string>
     <string name="current">В работе</string>
     <string name="description">Описание</string>
+    <string name="category">Категория</string>
+    <string name="rating_from">Рейтинг от</string>
+    <string name="from">От</string>
+    <string name="to">До</string>
     <string name="photo_session_description_hint">Расскажите о фотосессии</string>
     <string name="place">Место проведения</string>
     <string name="place_hint">Город, Улица, Дом</string>
@@ -77,4 +81,7 @@
     <string name="not_same_passwords_error">Пароли не совпадают</string>
     <string name="profile_already_exist">Такой профиль уже существует</string>
     <string name="need_read_external_storage_permission">Для добавления фото необходимо добавить разрешение в настройках</string>
+    <string name="filters">Фильтры</string>
+    <string name="save">Сохранить</string>
+    <string name="write">Написать</string>
 </resources>

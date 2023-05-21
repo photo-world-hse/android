@@ -6,6 +6,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.photoworld.data.model.ProfileType
 import com.photoworld.presenter.main.SearchItemState
 import com.photoworld.presenter.navigation.NavigationManager
 import com.photoworld.presenter.navigation.Screen
@@ -43,6 +44,7 @@ class PhotoSessionDetailsViewModel @Inject constructor(
 
     private val _organizerState = mutableStateOf(
         SearchItemState(
+            profileType = ProfileType.PHOTOGRAPHER,
             avatarUrl = "https://sun9-76.userapi.com/impg/tFiwmC0q7nRKjfEuke3fs7zU8SYLrpCGJMsoOQ/i2jcaPW13vM.jpg?size=798x832&quality=96&sign=d52aec7d7c942312407d985f399aca47&type=album",
             name = "Кузнецов Михаил",
             photoUrls = listOf()
@@ -63,6 +65,7 @@ class PhotoSessionDetailsViewModel @Inject constructor(
             delay(500L)
             _participantsState.add(
                 SearchItemState(
+                    profileType = ProfileType.MODEL,
                     avatarUrl = "https://sun9-47.userapi.com/impg/gO2AtlVrZUfcz3Z2xX8ZoDZ_Bnz89ppYVo-7Ww/d_WuSSIzQDI.jpg?size=722x738&quality=96&sign=82f7654ca808ab4102c3d11b8029853f&type=album",
                     name = "Денис Озмаден",
                     photoUrls = listOf(

@@ -36,8 +36,8 @@ fun MainScreen(
                 SearchTextField(
                     value = viewModel.searchState.value,
                     onValueChange = viewModel::onSearchChange,
-                    onSearchClick = {},
-                    onFiltersClick = {},
+                    onSearchClick = viewModel::onSearch,
+                    onFiltersClick = { navController.navigate(Screen.Filters.route) },
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 LazyColumn(
